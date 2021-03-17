@@ -251,7 +251,7 @@
 <h1>pygmt.datasets.load_earth_relief<a class="headerlink" href="#pygmt-datasets-load-earth-relief" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="pygmt.datasets.load_earth_relief">
-<code class="sig-prename descclassname"><span class="pre">pygmt.datasets.</span></code><code class="sig-name descname"><span class="pre">load_earth_relief</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'01d'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pygmt/datasets/earth_relief.html#load_earth_relief"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygmt.datasets.load_earth_relief" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">pygmt.datasets.</span></code><code class="sig-name descname"><span class="pre">load_earth_relief</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'01d'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_srtm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pygmt/datasets/earth_relief.html#load_earth_relief"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygmt.datasets.load_earth_relief" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load Earth relief grids (topography and bathymetry) in various resolutions.</p>
 <p>The grids are downloaded to a user data directory
 (usually <code class="docutils literal notranslate"><span class="pre">~/.gmt/server/earth/earth_relief/</span></code>) the first time you invoke
@@ -280,6 +280,11 @@ arc-minute (i.e., <code class="docutils literal notranslate"><span class="pre">0
 <code class="docutils literal notranslate"><span class="pre">gridline</span></code> for gridline registration. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>, where
 a pixel-registered grid is returned unless only the
 gridline-registered grid is available.</p></li>
+<li><p><strong>use_srtm</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – By default, the land-only SRTM tiles from NASA are used to generate the
+<code class="docutils literal notranslate"><span class="pre">'03s'</span></code> and <code class="docutils literal notranslate"><span class="pre">'01s'</span></code> grids, and the missing ocean values are filled
+by up-sampling the SRTM15+V2.1 tiles which have a resolution of 15
+arc-second (i.e., <code class="docutils literal notranslate"><span class="pre">'15s'</span></code>). If True, will only load the original
+land-only SRTM tiles.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -299,6 +304,13 @@ smaller tiles.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># load high-resolution grid for a specific region</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">load_earth_relief</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="s2">&quot;05m&quot;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="n">registration</span><span class="o">=</span><span class="s2">&quot;gridline&quot;</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># load the original 3 arc-second land-only SRTM tiles from NASA</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">load_earth_relief</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="s2">&quot;03s&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="mi">135</span><span class="p">,</span> <span class="mi">136</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">36</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">registration</span><span class="o">=</span><span class="s2">&quot;gridline&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">use_srtm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="gp">... </span><span class="p">)</span>
 </pre></div>
 </div>
@@ -349,7 +361,7 @@ smaller tiles.</p>
         &copy; Copyright 2017-2021, The PyGMT Developers.
       
         <span class="commit">
-          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/8e2b2e6">8e2b2e6</a></code>.
+          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/1a2289a">1a2289a</a></code>.
         </span>
       
 

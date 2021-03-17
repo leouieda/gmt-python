@@ -69,7 +69,7 @@ center (in degrees, <= 90, default 90), and *scale* and *width* set the figure s
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.293 seconds)
+   **Total running time of the script:** ( 0 minutes  0.947 seconds)
 
 
 .. _sphx_glr_download_projections_azim_azim_orthographic.py:

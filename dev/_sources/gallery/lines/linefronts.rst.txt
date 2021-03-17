@@ -130,7 +130,7 @@ argument. To make the main front line invisible, add **+i**.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.556 seconds)
+   **Total running time of the script:** ( 0 minutes  3.245 seconds)
 
 
 .. _sphx_glr_download_gallery_lines_linefronts.py:

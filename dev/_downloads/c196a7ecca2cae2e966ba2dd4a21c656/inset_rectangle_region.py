@@ -28,7 +28,7 @@ fig.coast(land="lightbrown", water="azure1", shorelines="2p", area_thresh=1000)
 # 0.1 cm, respectively. Draws a rectangular box around the inset with a fill color
 # of "white" and a pen of "1p".
 with fig.inset(position="jBR+w3c/3.6c+o0.1c", box="+gwhite+p1p"):
-    # Plot the Japan main land in the inset using coast. "U54S/M?" means UTM
+    # Plot the Japan main land in the inset using coast. "U54S/?" means UTM
     # projection with map width automatically determined from the inset width.
     # Highlight the Japan area in "lightbrown"
     # and draw its outline with a pen of "0.2p".

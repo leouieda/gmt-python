@@ -72,7 +72,7 @@ For example, to draw national boundaries with 1p thickness black lines use
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.960 seconds)
+   **Total running time of the script:** ( 0 minutes  1.398 seconds)
 
 
 .. _sphx_glr_download_gallery_maps_borders.py:

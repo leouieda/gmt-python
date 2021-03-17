@@ -73,7 +73,7 @@ box, offset, and margin can be customized. Plotting methods called within the
     # 0.1 cm, respectively. Draws a rectangular box around the inset with a fill color
     # of "white" and a pen of "1p".
     with fig.inset(position="jBR+w3c/3.6c+o0.1c", box="+gwhite+p1p"):
-        # Plot the Japan main land in the inset using coast. "U54S/M?" means UTM
+        # Plot the Japan main land in the inset using coast. "U54S/?" means UTM
         # projection with map width automatically determined from the inset width.
         # Highlight the Japan area in "lightbrown"
         # and draw its outline with a pen of "0.2p".
@@ -95,7 +95,7 @@ box, offset, and margin can be customized. Plotting methods called within the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.351 seconds)
+   **Total running time of the script:** ( 0 minutes  1.619 seconds)
 
 
 .. _sphx_glr_download_gallery_embellishments_inset_rectangle_region.py:

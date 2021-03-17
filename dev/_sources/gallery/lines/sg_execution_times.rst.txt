@@ -5,16 +5,16 @@
 
 Computation times
 =================
-**00:18.619** total execution time for **gallery_lines** files:
+**00:13.032** total execution time for **gallery_lines** files:
 
 +---------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_lines_vector_heads_tails.py` (``vector_heads_tails.py``) | 00:04.858 | 0.0 MB |
+| :ref:`sphx_glr_gallery_lines_vector_heads_tails.py` (``vector_heads_tails.py``) | 00:03.439 | 0.0 MB |
 +---------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_lines_linefronts.py` (``linefronts.py``)                 | 00:04.556 | 0.0 MB |
+| :ref:`sphx_glr_gallery_lines_linefronts.py` (``linefronts.py``)                 | 00:03.245 | 0.0 MB |
 +---------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_lines_linestyles.py` (``linestyles.py``)                 | 00:03.703 | 0.0 MB |
+| :ref:`sphx_glr_gallery_lines_linestyles.py` (``linestyles.py``)                 | 00:02.587 | 0.0 MB |
 +---------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_lines_line_custom_cpt.py` (``line_custom_cpt.py``)       | 00:03.195 | 0.0 MB |
+| :ref:`sphx_glr_gallery_lines_line_custom_cpt.py` (``line_custom_cpt.py``)       | 00:02.188 | 0.0 MB |
 +---------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_lines_vectors.py` (``vectors.py``)                       | 00:02.308 | 0.0 MB |
+| :ref:`sphx_glr_gallery_lines_vectors.py` (``vectors.py``)                       | 00:01.573 | 0.0 MB |
 +---------------------------------------------------------------------------------+-----------+--------+

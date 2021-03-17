@@ -5,22 +5,22 @@
 
 Computation times
 =================
-**00:10.769** total execution time for **projections_cyl** files:
+**00:07.721** total execution time for **projections_cyl** files:
 
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_cyl_cyl_cassini.py` (``cyl_cassini.py``)                                             | 00:01.737 | 0.0 MB |
+| :ref:`sphx_glr_projections_cyl_cyl_cassini.py` (``cyl_cassini.py``)                                             | 00:01.229 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_cyl_cyl_universal_transverse_mercator.py` (``cyl_universal_transverse_mercator.py``) | 00:01.394 | 0.0 MB |
+| :ref:`sphx_glr_projections_cyl_cyl_universal_transverse_mercator.py` (``cyl_universal_transverse_mercator.py``) | 00:01.029 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_cyl_cyl_miller.py` (``cyl_miller.py``)                                               | 00:01.367 | 0.0 MB |
+| :ref:`sphx_glr_projections_cyl_cyl_miller.py` (``cyl_miller.py``)                                               | 00:00.945 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_cyl_cyl_transverse_mercator.py` (``cyl_transverse_mercator.py``)                     | 00:01.284 | 0.0 MB |
+| :ref:`sphx_glr_projections_cyl_cyl_stereographic.py` (``cyl_stereographic.py``)                                 | 00:00.931 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_cyl_cyl_equal_area.py` (``cyl_equal_area.py``)                                       | 00:01.277 | 0.0 MB |
+| :ref:`sphx_glr_projections_cyl_cyl_equal_area.py` (``cyl_equal_area.py``)                                       | 00:00.910 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_cyl_cyl_stereographic.py` (``cyl_stereographic.py``)                                 | 00:01.252 | 0.0 MB |
+| :ref:`sphx_glr_projections_cyl_cyl_transverse_mercator.py` (``cyl_transverse_mercator.py``)                     | 00:00.908 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_cyl_cyl_mercator.py` (``cyl_mercator.py``)                                           | 00:01.234 | 0.0 MB |
+| :ref:`sphx_glr_projections_cyl_cyl_mercator.py` (``cyl_mercator.py``)                                           | 00:00.895 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_cyl_cyl_equidistant.py` (``cyl_equidistant.py``)                                     | 00:01.224 | 0.0 MB |
+| :ref:`sphx_glr_projections_cyl_cyl_equidistant.py` (``cyl_equidistant.py``)                                     | 00:00.873 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+

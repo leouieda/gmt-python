@@ -232,8 +232,8 @@
 <span class="kn">from</span> <span class="nn">pygmt.src</span> <span class="kn">import</span> <span class="n">grdcut</span><span class="p">,</span> <span class="n">which</span>
 
 
-<div class="viewcode-block" id="load_earth_relief"><a class="viewcode-back" href="../../../api/generated/pygmt.datasets.load_earth_relief.html#pygmt.datasets.load_earth_relief">[docs]</a><span class="nd">@kwargs_to_strings</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s2">&quot;sequence&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">load_earth_relief</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="s2">&quot;01d&quot;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">registration</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="load_earth_relief"><a class="viewcode-back" href="../../../api/generated/pygmt.datasets.load_earth_relief.html#pygmt.datasets.load_earth_relief">[docs]</a><span class="nd">@kwargs_to_strings</span><span class="p">(</span><span class="n">convert_bools</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="s2">&quot;sequence&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">load_earth_relief</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="s2">&quot;01d&quot;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">registration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_srtm</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load Earth relief grids (topography and bathymetry) in various resolutions.</span>
 
@@ -272,6 +272,13 @@
 <span class="sd">        a pixel-registered grid is returned unless only the</span>
 <span class="sd">        gridline-registered grid is available.</span>
 
+<span class="sd">    use_srtm : bool</span>
+<span class="sd">        By default, the land-only SRTM tiles from NASA are used to generate the</span>
+<span class="sd">        ``&#39;03s&#39;`` and ``&#39;01s&#39;`` grids, and the missing ocean values are filled</span>
+<span class="sd">        by up-sampling the SRTM15+V2.1 tiles which have a resolution of 15</span>
+<span class="sd">        arc-second (i.e., ``&#39;15s&#39;``). If True, will only load the original</span>
+<span class="sd">        land-only SRTM tiles.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    grid : :class:`xarray.DataArray`</span>
@@ -295,12 +302,21 @@
 <span class="sd">    &gt;&gt;&gt; grid = load_earth_relief(</span>
 <span class="sd">    ...     &quot;05m&quot;, region=[120, 160, 30, 60], registration=&quot;gridline&quot;</span>
 <span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; # load the original 3 arc-second land-only SRTM tiles from NASA</span>
+<span class="sd">    &gt;&gt;&gt; grid = load_earth_relief(</span>
+<span class="sd">    ...     &quot;03s&quot;,</span>
+<span class="sd">    ...     region=[135, 136, 35, 36],</span>
+<span class="sd">    ...     registration=&quot;gridline&quot;,</span>
+<span class="sd">    ...     use_srtm=True,</span>
+<span class="sd">    ... )</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># earth relief data stored as single grids for low resolutions</span>
     <span class="n">non_tiled_resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;01d&quot;</span><span class="p">,</span> <span class="s2">&quot;30m&quot;</span><span class="p">,</span> <span class="s2">&quot;20m&quot;</span><span class="p">,</span> <span class="s2">&quot;15m&quot;</span><span class="p">,</span> <span class="s2">&quot;10m&quot;</span><span class="p">,</span> <span class="s2">&quot;06m&quot;</span><span class="p">]</span>
     <span class="c1"># earth relief data stored as tiles for high resolutions</span>
     <span class="n">tiled_resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;05m&quot;</span><span class="p">,</span> <span class="s2">&quot;04m&quot;</span><span class="p">,</span> <span class="s2">&quot;03m&quot;</span><span class="p">,</span> <span class="s2">&quot;02m&quot;</span><span class="p">,</span> <span class="s2">&quot;01m&quot;</span><span class="p">,</span> <span class="s2">&quot;30s&quot;</span><span class="p">,</span> <span class="s2">&quot;15s&quot;</span><span class="p">,</span> <span class="s2">&quot;03s&quot;</span><span class="p">,</span> <span class="s2">&quot;01s&quot;</span><span class="p">]</span>
+    <span class="c1"># resolutions of original land-only SRTM tiles from NASA</span>
+    <span class="n">land_only_srtm_resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;03s&quot;</span><span class="p">,</span> <span class="s2">&quot;01s&quot;</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="n">registration</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;pixel&quot;</span><span class="p">,</span> <span class="s2">&quot;gridline&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
         <span class="c1"># If None, let GMT decide on Pixel/Gridline type</span>
@@ -325,21 +341,25 @@
             <span class="sa">f</span><span class="s2">&quot;resolution &#39;</span><span class="si">{</span><span class="n">resolution</span><span class="si">}</span><span class="s2">&#39; is not supported.&quot;</span>
         <span class="p">)</span>
 
+    <span class="c1"># Choose earth relief data prefix</span>
+    <span class="n">earth_relief_prefix</span> <span class="o">=</span> <span class="s2">&quot;earth_relief_&quot;</span>
+    <span class="k">if</span> <span class="n">use_srtm</span> <span class="ow">and</span> <span class="n">resolution</span> <span class="ow">in</span> <span class="n">land_only_srtm_resolutions</span><span class="p">:</span>
+        <span class="n">earth_relief_prefix</span> <span class="o">=</span> <span class="s2">&quot;srtm_relief_&quot;</span>
+
     <span class="c1"># different ways to load tiled and non-tiled earth relief data</span>
     <span class="c1"># Known issue: tiled grids don&#39;t support slice operation</span>
     <span class="c1"># See https://github.com/GenericMappingTools/pygmt/issues/524</span>
     <span class="k">if</span> <span class="n">region</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">resolution</span> <span class="ow">in</span> <span class="n">non_tiled_resolutions</span><span class="p">:</span>
-            <span class="n">fname</span> <span class="o">=</span> <span class="n">which</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;@earth_relief_</span><span class="si">{</span><span class="n">resolution</span><span class="si">}{</span><span class="n">reg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-            <span class="k">with</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataarray</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">dataarray</span><span class="p">:</span>
-                <span class="n">grid</span> <span class="o">=</span> <span class="n">dataarray</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-                <span class="n">_</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">gmt</span>  <span class="c1"># load GMTDataArray accessor information</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">resolution</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">non_tiled_resolutions</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">GMTInvalidInput</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;&#39;region&#39; is required for Earth relief resolution &#39;</span><span class="si">{</span><span class="n">resolution</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
             <span class="p">)</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">which</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;@earth_relief_</span><span class="si">{</span><span class="n">resolution</span><span class="si">}{</span><span class="n">reg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataarray</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">dataarray</span><span class="p">:</span>
+            <span class="n">grid</span> <span class="o">=</span> <span class="n">dataarray</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+            <span class="n">_</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">gmt</span>  <span class="c1"># load GMTDataArray accessor information</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">grid</span> <span class="o">=</span> <span class="n">grdcut</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;@earth_relief_</span><span class="si">{</span><span class="n">resolution</span><span class="si">}{</span><span class="n">reg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">)</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">grdcut</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;@</span><span class="si">{</span><span class="n">earth_relief_prefix</span><span class="si">}{</span><span class="n">resolution</span><span class="si">}{</span><span class="n">reg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">)</span>
 
     <span class="c1"># Add some metadata to the grid</span>
     <span class="n">grid</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;elevation&quot;</span>
@@ -370,7 +390,7 @@
         &copy; Copyright 2017-2021, The PyGMT Developers.
       
         <span class="commit">
-          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/8e2b2e6">8e2b2e6</a></code>.
+          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/1a2289a">1a2289a</a></code>.
         </span>
       
 

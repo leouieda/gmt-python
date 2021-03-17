@@ -5,18 +5,18 @@
 
 Computation times
 =================
-**00:11.190** total execution time for **projections_azim** files:
+**00:07.789** total execution time for **projections_azim** files:
 
 +----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_azim_azim_general_perspective.py` (``azim_general_perspective.py``)     | 00:04.218 | 0.0 MB |
+| :ref:`sphx_glr_projections_azim_azim_general_perspective.py` (``azim_general_perspective.py``)     | 00:02.808 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_azim_azim_equidistant.py` (``azim_equidistant.py``)                     | 00:01.819 | 0.0 MB |
+| :ref:`sphx_glr_projections_azim_azim_equidistant.py` (``azim_equidistant.py``)                     | 00:01.250 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_azim_azim_general_stereographic.py` (``azim_general_stereographic.py``) | 00:01.322 | 0.0 MB |
+| :ref:`sphx_glr_projections_azim_azim_gnomonic.py` (``azim_gnomonic.py``)                           | 00:00.964 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_azim_azim_gnomonic.py` (``azim_gnomonic.py``)                           | 00:01.320 | 0.0 MB |
+| :ref:`sphx_glr_projections_azim_azim_orthographic.py` (``azim_orthographic.py``)                   | 00:00.947 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_azim_azim_orthographic.py` (``azim_orthographic.py``)                   | 00:01.293 | 0.0 MB |
+| :ref:`sphx_glr_projections_azim_azim_lambert.py` (``azim_lambert.py``)                             | 00:00.915 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_projections_azim_azim_lambert.py` (``azim_lambert.py``)                             | 00:01.217 | 0.0 MB |
+| :ref:`sphx_glr_projections_azim_azim_general_stereographic.py` (``azim_general_stereographic.py``) | 00:00.905 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------+-----------+--------+

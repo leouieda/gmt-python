@@ -105,7 +105,7 @@ Note that the anchor point defaults to the bottom left (**BL**). Append ``+h`` t
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.682 seconds)
+   **Total running time of the script:** ( 0 minutes  1.106 seconds)
 
 
 .. _sphx_glr_download_gallery_embellishments_colorbar.py:

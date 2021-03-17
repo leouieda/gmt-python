@@ -255,7 +255,7 @@ to download the full example code</p>
 <p>The <a class="reference internal" href="../../api/generated/pygmt.Figure.plot3d.html#pygmt.Figure.plot3d" title="pygmt.Figure.plot3d"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pygmt.Figure.plot3d</span></code></a> method can be used to plot symbols in 3D.
 In the example below, we show how the
 <a class="reference external" href="https://en.wikipedia.org/wiki/Iris_flower_data_set">Iris flower dataset</a>
-can be visualized using a perspective 3-dimensional plot. The <code class="docutils literal notranslate"><span class="pre">region</span></code>
+can be visualized using a perspective 3D plot. The <code class="docutils literal notranslate"><span class="pre">region</span></code>
 parameter has to include the <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span> axis limits in the
 form of (xmin, xmax, ymin, ymax, zmin, zmax), which can be done automatically
 using <a class="reference internal" href="../../api/generated/pygmt.info.html#pygmt.info" title="pygmt.info"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pygmt.info</span></code></a>. To plot the z-axis frame, set <code class="docutils literal notranslate"><span class="pre">frame</span></code> as a
@@ -275,41 +275,59 @@ the vertical exaggeration factor.</p>
 
 <span class="c1"># Load sample iris data, and convert &#39;species&#39; column to categorical dtype</span>
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">df</span></a> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv" title="pandas.read_csv" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-function"><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span></a><span class="p">(</span><span class="s2">&quot;https://github.com/mwaskom/seaborn-data/raw/master/iris.csv&quot;</span><span class="p">)</span>
-<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">df</span></a><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.astype.html#pandas.Series.astype" title="pandas.Series.astype" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-method"><span class="n">df</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">astype</span></a><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.Series" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">df</span><span class="o">.</span><span class="n">species</span></a> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.astype.html#pandas.Series.astype" title="pandas.Series.astype" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-method"><span class="n">df</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">astype</span></a><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
 
 <span class="c1"># Use pygmt.info to get region bounds (xmin, xmax, ymin, ymax, zmin, zmax)</span>
-<span class="c1"># The below example will return a numpy array like [0., 3., 4., 8., 1., 7.]</span>
+<span class="c1"># The below example will return a numpy array like [0.0, 3.0, 4.0, 8.0, 1.0, 7.0]</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">region</span></a> <span class="o">=</span> <a href="../../api/generated/pygmt.info.html#pygmt.info" title="pygmt.info" class="sphx-glr-backref-module-pygmt sphx-glr-backref-type-py-function"><span class="n">pygmt</span><span class="o">.</span><span class="n">info</span></a><span class="p">(</span>
     <span class="n">table</span><span class="o">=</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">df</span></a><span class="p">[[</span><span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;petal_length&quot;</span><span class="p">]],</span>  <span class="c1"># x, y, z columns</span>
-    <span class="n">per_column</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># report output as a numpy array</span>
-    <span class="n">spacing</span><span class="o">=</span><span class="s2">&quot;1/2/0.5&quot;</span><span class="p">,</span>  <span class="c1"># rounds x, y and z intervals by 1, 2 and 0.5 respectively</span>
+    <span class="n">per_column</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># report the min/max values per column as a numpy array</span>
+    <span class="c1"># round the min/max values of the first three columns to the nearest multiple</span>
+    <span class="c1"># of 1, 2 and 0.5, respectively</span>
+    <span class="n">spacing</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
 <span class="p">)</span>
 
-<span class="c1"># Make our 3D scatter plot, coloring each of the 3 species differently</span>
+<span class="c1"># Make a 3D scatter plot, coloring each of the 3 species differently</span>
 <a href="../../api/generated/pygmt.Figure.html#pygmt.Figure" title="pygmt.Figure" class="sphx-glr-backref-module-pygmt sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a> <span class="o">=</span> <a href="../../api/generated/pygmt.Figure.html#pygmt.Figure" title="pygmt.Figure" class="sphx-glr-backref-module-pygmt sphx-glr-backref-type-py-class"><span class="n">pygmt</span><span class="o">.</span><span class="n">Figure</span></a><span class="p">()</span>
+
+<span class="c1"># Define a colormap to be used for three categories, define the range of the</span>
+<span class="c1"># new discrete CPT using series=(lowest_value, highest_value, interval),</span>
+<span class="c1"># use color_model=&quot;+c&quot; to write the discrete color palette &quot;cubhelix&quot; in</span>
+<span class="c1"># categorical format</span>
 <a href="../../api/generated/pygmt.makecpt.html#pygmt.makecpt" title="pygmt.makecpt" class="sphx-glr-backref-module-pygmt sphx-glr-backref-type-py-function"><span class="n">pygmt</span><span class="o">.</span><span class="n">makecpt</span></a><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cubhelix&quot;</span><span class="p">,</span> <span class="n">color_model</span><span class="o">=</span><span class="s2">&quot;+c&quot;</span><span class="p">,</span> <span class="n">series</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
 <a href="../../api/generated/pygmt.Figure.plot3d.html#pygmt.Figure.plot3d" title="pygmt.Figure.plot3d" class="sphx-glr-backref-module-pygmt sphx-glr-backref-type-py-method"><span class="n">fig</span><span class="o">.</span><span class="n">plot3d</span></a><span class="p">(</span>
+    <span class="c1"># Use petal width, sepal length and petal length as x, y and z data input,</span>
+    <span class="c1"># respectively</span>
     <span class="n">x</span><span class="o">=</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.Series" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">df</span><span class="o">.</span><span class="n">petal_width</span></a><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.Series" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">df</span><span class="o">.</span><span class="n">sepal_length</span></a><span class="p">,</span>
     <span class="n">z</span><span class="o">=</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.Series" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">df</span><span class="o">.</span><span class="n">petal_length</span></a><span class="p">,</span>
-    <span class="n">sizes</span><span class="o">=</span><span class="mf">0.1</span> <span class="o">*</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.Series" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">df</span><span class="o">.</span><span class="n">sepal_width</span></a><span class="p">,</span>  <span class="c1"># Vary each symbol size according to a data column</span>
-    <span class="n">color</span><span class="o">=</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">df</span></a><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>  <span class="c1"># Points colored by categorical number code</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Use colormap created by makecpt</span>
-    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">region</span></a><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">region</span></a><span class="p">,</span>  <span class="c1"># (xmin, xmax, ymin, ymax, zmin, zmax)</span>
+    <span class="c1"># Vary each symbol size according to another feature (sepal width, scaled by 0.1)</span>
+    <span class="n">sizes</span><span class="o">=</span><span class="mf">0.1</span> <span class="o">*</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.Series" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">df</span><span class="o">.</span><span class="n">sepal_width</span></a><span class="p">,</span>
+    <span class="c1"># Use 3D cubes (&quot;u&quot;) as symbols, with size in centimeter units (&quot;c&quot;)</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;uc&quot;</span><span class="p">,</span>
+    <span class="c1"># Points colored by categorical number code</span>
+    <span class="n">color</span><span class="o">=</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.Series" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">df</span><span class="o">.</span><span class="n">species</span></a><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+    <span class="c1"># Use colormap created by makecpt</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="c1"># Set map dimensions (xmin, xmax, ymin, ymax, zmin, zmax)</span>
+    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">region</span></a><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">region</span></a><span class="p">,</span>
+    <span class="c1"># Set frame parameters</span>
     <span class="n">frame</span><span class="o">=</span><span class="p">[</span>
         <span class="s2">&quot;WsNeZ3&quot;</span><span class="p">,</span>  <span class="c1"># z axis label positioned on 3rd corner</span>
         <span class="s1">&#39;xafg+l&quot;Petal Width&quot;&#39;</span><span class="p">,</span>
         <span class="s1">&#39;yafg+l&quot;Sepal Length&quot;&#39;</span><span class="p">,</span>
         <span class="s1">&#39;zafg+l&quot;Petal Length&quot;&#39;</span><span class="p">,</span>
     <span class="p">],</span>
-    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;uc&quot;</span><span class="p">,</span>  <span class="c1"># 3D cUbe, with size in centimeter units</span>
-    <span class="n">perspective</span><span class="o">=</span><span class="p">[</span><span class="mi">315</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>  <span class="c1"># Azimuth NorthWest (315°), at elevation 25°</span>
-    <span class="n">zscale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>  <span class="c1"># Vertical exaggeration factor</span>
+    <span class="c1"># Set perspective to azimuth NorthWest (315°), at elevation 25°</span>
+    <span class="n">perspective</span><span class="o">=</span><span class="p">[</span><span class="mi">315</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+    <span class="c1"># Vertical exaggeration factor</span>
+    <span class="n">zscale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
 <span class="p">)</span>
 <a href="../../api/generated/pygmt.Figure.show.html#pygmt.Figure.show" title="pygmt.Figure.show" class="sphx-glr-backref-module-pygmt sphx-glr-backref-type-py-method"><span class="n">fig</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.916 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.378 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-3d-plots-scatter3d-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d99c122b2fad1384ab5bf5be5d8c62d5/scatter3d.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">scatter3d.py</span></code></a></p>
@@ -345,7 +363,7 @@ the vertical exaggeration factor.</p>
         &copy; Copyright 2017-2021, The PyGMT Developers.
       
         <span class="commit">
-          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/8e2b2e6">8e2b2e6</a></code>.
+          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/1a2289a">1a2289a</a></code>.
         </span>
       
 

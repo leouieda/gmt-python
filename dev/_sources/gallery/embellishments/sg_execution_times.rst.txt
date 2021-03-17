@@ -5,16 +5,16 @@
 
 Computation times
 =================
-**00:10.088** total execution time for **gallery_embellishments** files:
+**00:06.883** total execution time for **gallery_embellishments** files:
 
 +--------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_embellishments_inset.py` (``inset.py``)                                   | 00:02.498 | 0.0 MB |
+| :ref:`sphx_glr_gallery_embellishments_inset.py` (``inset.py``)                                   | 00:01.774 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_embellishments_inset_rectangle_region.py` (``inset_rectangle_region.py``) | 00:02.351 | 0.0 MB |
+| :ref:`sphx_glr_gallery_embellishments_inset_rectangle_region.py` (``inset_rectangle_region.py``) | 00:01.619 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_embellishments_legend.py` (``legend.py``)                                 | 00:02.047 | 0.0 MB |
+| :ref:`sphx_glr_gallery_embellishments_legend.py` (``legend.py``)                                 | 00:01.285 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_embellishments_colorbar.py` (``colorbar.py``)                             | 00:01.682 | 0.0 MB |
+| :ref:`sphx_glr_gallery_embellishments_colorbar.py` (``colorbar.py``)                             | 00:01.106 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_embellishments_logo.py` (``logo.py``)                                     | 00:01.509 | 0.0 MB |
+| :ref:`sphx_glr_gallery_embellishments_logo.py` (``logo.py``)                                     | 00:01.099 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------+-----------+--------+

@@ -79,7 +79,7 @@ using the ``scale`` parameter.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.272 seconds)
+   **Total running time of the script:** ( 0 minutes  0.847 seconds)
 
 
 .. _sphx_glr_download_gallery_seismology_meca.py:

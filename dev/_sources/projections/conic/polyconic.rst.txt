@@ -85,7 +85,7 @@ with *scale* or *width*.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.189 seconds)
+   **Total running time of the script:** ( 0 minutes  0.901 seconds)
 
 
 .. _sphx_glr_download_projections_conic_polyconic.py:

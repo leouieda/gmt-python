@@ -302,7 +302,7 @@ The example below uses data with a 10 arc minute resolution, and plots it on a
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.888 seconds)
+   **Total running time of the script:** ( 0 minutes  5.595 seconds)
 
 
 .. _sphx_glr_download_tutorials_earth_relief.py:

@@ -234,7 +234,7 @@ bar's alignment similar to the figure, use ``True`` as the ``perspective`` param
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.603 seconds)
+   **Total running time of the script:** ( 0 minutes  4.801 seconds)
 
 
 .. _sphx_glr_download_tutorials_3d_perspective_image.py:

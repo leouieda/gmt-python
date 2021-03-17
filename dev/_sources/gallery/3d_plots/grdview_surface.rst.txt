@@ -100,7 +100,7 @@ axis scaling. The ``shading`` parameter specifies illumination; here we choose a
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.342 seconds)
+   **Total running time of the script:** ( 0 minutes  5.053 seconds)
 
 
 .. _sphx_glr_download_gallery_3d_plots_grdview_surface.py:

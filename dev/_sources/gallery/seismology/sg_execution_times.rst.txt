@@ -5,8 +5,8 @@
 
 Computation times
 =================
-**00:01.272** total execution time for **gallery_seismology** files:
+**00:00.847** total execution time for **gallery_seismology** files:
 
 +----------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_seismology_meca.py` (``meca.py``) | 00:01.272 | 0.0 MB |
+| :ref:`sphx_glr_gallery_seismology_meca.py` (``meca.py``) | 00:00.847 | 0.0 MB |
 +----------------------------------------------------------+-----------+--------+

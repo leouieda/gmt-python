@@ -243,7 +243,7 @@ CSS):
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  8.733 seconds)
+   **Total running time of the script:** ( 0 minutes  6.389 seconds)
 
 
 .. _sphx_glr_download_tutorials_coastlines.py:
